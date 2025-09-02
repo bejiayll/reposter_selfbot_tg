@@ -12,8 +12,8 @@ processed_albums = deque(maxlen=10)
 
 api_id = config["api_id"]
 api_hash = config["api_hash"]
-source_channel = config["source_channel"]
-target_chat = config["target_chat"]
+source_channel = int(config["source_channel"])
+target_chat = int(config["target_chat"])
 
 link_replaced = config["link_replaced"]
 name_replaced = config["name_replaced"]
