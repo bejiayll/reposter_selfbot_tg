@@ -58,11 +58,13 @@ async def message_handler(event: events.NewMessage.Event):
 async def album_handler(event):
     text = event.text or ""
     final_message = re.sub(r'\[.*?\]\(https://t\.me/\S+?\)', f'[{name_replaced}]({link_replaced})', text)
+    super_final_message = re.sub(r'''Присоединяйся к нам 🔻 t\.me/\S+?\ 🔻
+Приглашай друзей. Мы ждем тебя.''', ' ', final_message)
     target_chat = await resolve_chat_by_id(client, int(config["target_chat"]))
     await client.send_message(
         entity=target_chat,
         file=event.messages,
-        message=final_message,
+        message=super_final_message,
     )
 
 client.start()
