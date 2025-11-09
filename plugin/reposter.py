@@ -45,9 +45,9 @@ async def message_handler(event: events.NewMessage.Event):
         super_final_message = re.sub(r'''Присоединяйся к нам 🔻 t\.me/\S+?\ 🔻
 Приглашай друзей. Мы ждем тебя.''', ' ', final_message)
         if event.message.media:
-            await client.send_file(target_chat, file=event.message, caption=final_message)
+            await client.send_file(target_chat, file=event.message, caption=super_final_message)
         else:
-            await client.send_message(target_chat, final_message)
+            await client.send_message(target_chat, super_final_message)
 
         print(f"{event.message.text}")
 
